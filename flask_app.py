@@ -35,6 +35,8 @@ class Comment(db.Model):
 
 
 #REST OF THE APP
+
+#INDEX PAGE
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
@@ -44,4 +46,9 @@ def index():
     db.session.add(comment)
     db.session.commit()
     return redirect(url_for('index'))
+
+#LOGIN PAGE
+@app.route("/login")
+def login():
+    return render_template("login_page.html")
 
